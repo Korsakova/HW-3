@@ -5,7 +5,6 @@
  * методы Summator, Splitter, Eraser
  */
 
-package Part1;
 import java.util.*;
 
 

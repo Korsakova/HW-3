@@ -4,8 +4,6 @@
  * addObject, deleteObject, dump
  */
 
-package Part1;
-
 public class ObjectBox<T> {
 
 

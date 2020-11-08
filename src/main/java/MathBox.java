@@ -8,9 +8,8 @@
 import java.util.*;
 
 
-public class MathBox {
+public class MathBox <T extends Number> extends ObjectBox<T> {
     List<Double> numbers;
-
 
     // Конструктор на вход получающий массив Number
     MathBox(Number[] numbers){

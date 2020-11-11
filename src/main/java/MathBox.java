@@ -8,8 +8,7 @@
 import java.util.*;
 
 
-public class MathBox <T extends Number> extends ObjectBox<T> {
-    List<Double> numbers;
+public class MathBox extends ObjectBox<Double> {
 
     // Конструктор на вход получающий массив Number
     MathBox(Number[] numbers){
@@ -17,13 +16,15 @@ public class MathBox <T extends Number> extends ObjectBox<T> {
         for (int k = 0; k < numbers.length; k++) {
             otherNumbers.add(numbers[k].doubleValue());
         }
-        this.numbers = new ArrayList<>(otherNumbers);
+        for (Double otherNumber : otherNumbers) {
+            this.addObject(otherNumber);
+        }
     }
 
     // метод summator, возвращающий сумму всех элементов коллекции
     public double summator(){
         double j = 0;
-        for (Double number : numbers) {
+        for (Double number : objects) {
            j = j + number;
         }
         return j;
@@ -32,16 +33,16 @@ public class MathBox <T extends Number> extends ObjectBox<T> {
     // Хранящиеся в объекте данные полностью заменяются результатами деления.
     public void splitter(int divider){
         double a =0;
-        for (int i = 0; i < numbers.size(); i++) {
-            a = numbers.get(i) / divider;
-            numbers.set(i, a);
+        for (int i = 0; i < objects.size(); i++) {
+            a = objects.get(i) / divider;
+            objects.set(i, a);
         }
 
     }
 
     // метод deleteIntNumber, который получает на вход Integer и если такое значение есть в коллекции, удаляет его.
     public void deleteIntNumber(Integer numberToDelete){
-        numbers.remove(numberToDelete.doubleValue());
+        this.deleteObject(numberToDelete.doubleValue());
     }
 
     public static void main(String[] args) {

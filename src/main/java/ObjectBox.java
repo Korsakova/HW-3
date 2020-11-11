@@ -9,7 +9,7 @@ import java.util.List;
  */
 
 public class ObjectBox<T>{
-    List<Object> objects;
+    protected final List<T> objects;
 
     // конструктор для объекта objects
     ObjectBox(){
@@ -19,13 +19,13 @@ public class ObjectBox<T>{
 
 
     // метод addObject добавляет объект в коллекцию
-    public void addObject(Object addInCollection){
+    public void addObject(T addInCollection){
 
         this.objects.add(addInCollection);
     }
 
     // метод deleteObject проверяет наличие объекта в коллекции и при наличии удаляющий его
-    public void deleteObject(Object deleteFromCollection){
+    public void deleteObject(T deleteFromCollection){
 
         this.objects.remove(deleteFromCollection);
     }
@@ -37,7 +37,7 @@ public class ObjectBox<T>{
     }
 
     public static void main(String[] args) {
-        ObjectBox newObjectBox = new ObjectBox();
+        ObjectBox<Object> newObjectBox = new ObjectBox<>();
         newObjectBox.addObject(5);
         newObjectBox.addObject("Настя");
         newObjectBox.addObject(56.0);
